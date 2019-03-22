@@ -1,0 +1,48 @@
+extern class Application {
+	var readonly:Dynamic;
+	var project:Project;
+	var isoLanguage:String;
+	var version:String;
+	var buildName:String;
+	var buildNumber:Float;
+	var isWatchFolder:Bool;
+	var isRenderEngine:Bool;
+	// var language : Language;
+	var settings:Settings;
+	var onError:haxe.extern.EitherType<String, Null<Dynamic>>;
+	var exitCode:Float;
+	var exitAfterLaunchAndEval:Bool;
+	var saveProjectOnCrash:Bool;
+	var memoryInUse:Float;
+	var effects:Array<{
+		var displayName:String;
+		var matchName:String;
+		var version:String;
+		var category:String;
+	}>;
+	var activeViewer:haxe.extern.EitherType<Viewer, Null<Dynamic>>;
+	var preferences:Preferences;
+	// var availableGPUAccelTypes:GpuAccelType;
+	function newProject():haxe.extern.EitherType<Project, Null<Dynamic>>;
+	function open(?file:File):haxe.extern.EitherType<Project, Null<Dynamic>>;
+	function quit():Void;
+	function watchFolder(folder_object_to_watch:Folder):Void;
+	function pauseWatchFolder(pause:Bool):Void;
+	function endWatchFolder():Void;
+	// function purge(target:PurgeTarget):Void;
+	function beginUndoGroup(undoString:String):Void;
+	function endUndoGroup():Void;
+	function beginSuppressDialogs():Void;
+	function endSuppressDialogs(alert:Bool):Void;
+	function setMemoryUsageLimits(imageCachePercentage:Float, maximumMemoryPercentage:Float):Void;
+	function setSavePreferencesOnQuit(doSave:Bool):Void;
+	function activate():Void;
+	function scheduleTask(stringToExecute:String, delay:Float, repeat:Bool):Float;
+	function cancelTask(taskID:Float):Void;
+	function parseSwatchFile(file:File):Swatch;
+	function findMenuCommandId(str:String):Float;
+	function executeCommand(id:Float):Void;
+	function getenv(name:String):String;
+	function setTimeout(func:Void->Void, ?delay:Float):Float;
+	function cancelTimeout(id:Float):Void;
+}

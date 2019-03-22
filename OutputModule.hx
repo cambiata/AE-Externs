@@ -1,0 +1,41 @@
+extern class OutputModule {
+	var file:File;
+	var postRenderAction:PostRenderAction;
+	var readonly:Dynamic;
+	var name:String;
+	var templates:Array<String>;
+	var includeSourceXMP:Bool;
+	function remove():Void;
+	function saveAsTemplate(name:String):Void;
+	function applyTemplate(templateName:String):Void;
+	function getSetting(key:String):haxe.extern.EitherType<String, Float>;
+	function getSettings(?format:GetSettingsFormat):{
+		var AudioBitDepth:String;
+		var AudioChannels:String;
+		var AudioSampleRate:String;
+		var Channels:String;
+		var Color:String;
+		var Crop:String;
+		var CropBottom:String;
+		var CropLeft:String;
+		var CropRight:String;
+		var CropTop:String;
+		var Depth:String;
+		var Format:String;
+		var IncludeProjectLink:String;
+		var IncludeSourceXMPMetadata:String;
+		var LockAspectRatio:String;
+		var OutputAudio:String;
+		var OutputFileInfo:String;
+		var PostRenderAction:String;
+		var Resize:String;
+		var ResizeQuality:String;
+		var Resizeto:Dynamic;
+		var Starting:String;
+		var UseCompFrameNumber:String;
+		var UseRegionOfInterest:String;
+		var VideoOutput:String;
+	};
+	function setSetting(key:String, value:haxe.extern.EitherType<String, Float>):Void;
+	function setSettings(settings:Dynamic):Void;
+}
